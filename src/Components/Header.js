@@ -7,7 +7,7 @@ const Header = () => {
       <div>
         <ul className="flex justify-between">
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/">Dashboard</Link>
           </li>
           <li>
             <Link className="pr-5" to="/login">

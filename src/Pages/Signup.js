@@ -122,7 +122,7 @@ const Signup = () => {
             <input
               className="btn btn-blue w-full my-3 max-w-xs text-white"
               type="submit"
-              value="Login"
+              value="Sign In"
             />
           </form>
 

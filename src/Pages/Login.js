@@ -1,13 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import auth from "../firebase.init";
 
 const Login = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  if(user){
+    console.log(user)
+  }
   return (
     <div className="flex pt-14 pb-12 justify-center">
       <div className=" w-96 shadow">
@@ -84,8 +94,9 @@ const Login = () => {
                 )}
               </label>
             </div>
-            {/* {signInError} */}
+            
             <input
+            
               className="btn btn-blue w-full my-3 max-w-xs text-white"
               type="submit"
               value="Login"
@@ -102,7 +113,7 @@ const Login = () => {
           <div className="divider">OR</div>
 
           <button
-            //   onClick={() => signInWithGoogle()}
+              onClick={() => signInWithGoogle()}
             className="btn btn-blue btn-outline w-full my-3 max-w-xs"
           >
             Continue with google
